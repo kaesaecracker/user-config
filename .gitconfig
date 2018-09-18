@@ -1,0 +1,50 @@
+[user]
+	name = Vinzenz Schroeter
+[merge]
+	tool = kdiff3
+[diff]
+	tool = kdiff3
+	guitool = kdiff3
+[core]
+	autocrlf = true
+    
+[alias]
+	unstage = reset HEAD --
+    
+    # pretty log output
+	prettylog = log --pretty=oneline --abbrev-commit
+    graph = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
+
+    # last commit
+	last = log -1 HEAD
+    # fetch and pull
+	fpull = "!git fetch && git pull"    
+    # prune branches not in remote
+    pfetch = fetch -p    
+    # diff staged files
+    commdiff = diff --staged
+    
+    # show aliases
+    aliases = "!git config --get-regexp '^alias.' | cut -c 7- | sed 's/ / = /'"
+    
+    # abbreviations
+    a = add
+    b = branch
+    c = commit
+    d = diff
+    f = fetch
+    l = log
+    m = merge
+    o = checkout
+    p = pull
+    s = status --short --branch
+    w = whatchanged
+    
+    # asks for each change
+    ap = add --patch 
+    
+    # assume file unchanged
+    assume   = update-index --assume-unchanged
+    unassume = update-index --no-assume-unchanged
+    assumed  = !"git ls-files -v | grep ^h | cut -c 3-"
+    
